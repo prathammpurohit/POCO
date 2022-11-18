@@ -1,0 +1,161 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/gradient-style.css" />
+    <link rel="stylesheet" href="styles/loader.css" />
+    <link rel="stylesheet" href="styles/box-2.css" />
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js"
+      integrity="sha512-zKaK6G2LZC5YZTX0vKmD7xOwd1zrEEMal4zlTf5Ved/A1RrnW+qt8pWDfo7oz+xeChECS/P9dv6EDwwPwelFfQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.js"
+      integrity="sha512-ioFpA4cD4gmoOhHglW4f6gep7w+YL7UMKtXx4ebJ5NN4SscmnZYYmSjkA+DaHGvBI4wpYVPx2C7DmmV9TgbIbQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js.map"></script>
+    <script src="scripts/gradient.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/@barba/core"></script>
+
+    <!-- jsdelivr -->
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
+    <title>POCO</title>
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div class="flex fixed fullscreen translucent">
+      <div class="loader loader1">LOADING</div>
+    </div>
+    <!-- GRADIENT -->
+    <main>
+      <section class="box-1" id="box">
+        <div class="gradient animate__animated animate__pulse">
+          <canvas
+            style="
+              --gradient-color-1: #ef008f;
+              --gradient-color-2: #6ec3f4;
+              --gradient-color-3: #7038ff;
+              --gradient-color-4: #e2e2e2;
+            "
+            id="gradient-canvas"
+            data-transition-in
+          ></canvas>
+          <script>
+            window.addEventListener("DOMContentLoaded", (e) => {
+              var gradient = new Gradient();
+              gradient.initGradient("#gradient-canvas");
+            });
+          </script>
+        </div>
+        <div class="set-poco-heading">
+          <h1 class="poco-heading animate__animated animate__fadeInDown">
+            Dummy Dummy <br />
+            Charts!
+          </h1>
+        </div>
+
+        >
+        <div class="set-font">
+          <a href="#box"
+            ><i
+              class="fas fa-mouse icon animate__animated animate__fadeInUp magic-hover magic-hover__square"
+              style="display: none;"
+            ></i
+          ></a>
+          <p
+            class="icon-para animate__animated animate__fadeInUp"
+            style="display: none"
+          >
+            swipe up
+          </p>
+        </div>
+      </section>
+      <h2 class="heading-box-2" data-aos="fade-up">Import your data!</h2>
+      <section class="box-2">
+        <!-- <div class="set-background"> -->
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <!-- </div> -->
+        <div class="container" data-aos="flip-left">
+          <h2 class="text-center mt-4 mb-4" style="padding:3vh;">
+            Convert Excel to HTML Table
+          </h2>
+          <div class="card" style="background-color: #B9E0FF;">
+            <div class="card-header"><b>Select Excel File</b></div>
+            <div class="card-body">
+              <input type="file" id="excel_file" class="magic-hover magic-hover__square"/>
+            </div>
+          </div>
+          <div id="excel_data" class="mt-5"></div>
+        </div>
+        <div id="chart_div"></div>
+      </section>
+    </main>
+  </body>
+  <!-- Loader Js -->
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector(".flex").style.display = "none";
+    });
+  </script>
+  <script>
+    setTimeout(() => {
+      document.querySelector(".icon").style.display = "unset";
+      document.querySelector(".icon-para").style.display = "unset";
+    }, 1000);
+    window.addEventListener("scroll", () => {
+      document.querySelector(".set-font").style.alignItems = "flex-end";
+      document.querySelector(".set-font").style.position = "fixed";
+      document.querySelector(".set-font").style.bottom = "0px";
+      document.querySelector(".set-font").style.right = "0px";
+      document.querySelector(".set-font").style.height = "auto";
+      document.querySelector(".icon-para").style.display = "none";
+    });
+  </script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://unpkg.com/kursor"></script>
+  <script>
+      new kursor({
+          type: 1,
+          color:'#393E46'
+      })
+  </script>
+  <script src="scripts/box-2.js"></script>
+  <script src="scripts/sheetCalc.js"></script>
+</html>

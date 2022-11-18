@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300&display=swap');
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.fullscreen {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.translucent {
+  background-color: rgba(0,100,200, 0.5);
+  animation-name: translucent;
+    animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear-gradient;
+}
+
+.loader {
+  font-family: Advent Pro;
+  font-size: 5vw;
+  color: blue;
+}
+
+
+.loader1 {
+  border-color: blue;
+  animation-name: loader1;
+    animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear-gradient;
+}
+
+
+@keyframes loader1 {
+  0% {
+    transform: rotate(0deg);
+    color: blue;
+  }
+  50% {
+    transform: rotate(360deg);
+      color: darkgoldenrod;
+  }
+  100% {
+      transform: rotate(720deg);
+      color: blue;
+  }
+}
+
+@keyframes translucent {
+  0% {
+    background-color: rgba(0,100,200, 0.5);
+  }
+  50% {
+    background-color: rgba(221,170,34, 0.5);
+  }
+  100% {
+      background-color: rgba(0,100,200, 0.5);
+  }
+}

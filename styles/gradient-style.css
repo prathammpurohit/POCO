@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); 
+* {
+	margin: 0;
+	padding: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+main{
+  position: relative;
+  overflow: hidden;
+  font-family: Bebas Neue;
+  color: #6C4AB6;
+  letter-spacing: 1.5px;
+  cursor: none;
+}
+.box-1{
+  height: 100vh;
+}
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+	display: grid;
+	place-items: stretch;
+  clip-path: polygon(100% 20%, 100% 0, 0 0, 0 100%);
+}
+
+.set-poco-heading{
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.poco-heading{
+  color: #B9E0FF;
+  font-size: 20vh;
+  padding: 6vw;
+  mix-blend-mode:hard-light;
+}
+.set-font{
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: end;
+  align-items:center;
+  z-index: 100000;
+  padding: 1vh;
+}
+.icon{
+  font-size: 5vh;
+  padding: 3vh;
+  color: #8D9EFF;
+}
+
+.icon-para{
+  padding: 1vh;
+  font-size: 3vh;
+}
+#gradient-canvas {
+	background: lightgrey;
+}
