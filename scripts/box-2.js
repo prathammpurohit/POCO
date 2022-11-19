@@ -57,8 +57,8 @@ excel_file.addEventListener("change", (event) => {
 
       document.getElementById("excel_data").innerHTML = table_output;
       document.getElementById("excel_data").style.backgroundColor = "#B9E0FF";
-      var xValues = dum[1];
-      var yValues = dum[2];
+      let xValues = dum[dum.length-2];
+      let yValues = dum[dum.length-1];
 
       new Chart("myChart", {
         type: "line",
