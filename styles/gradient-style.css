@@ -46,11 +46,10 @@ main{
   justify-content: end;
   align-items:center;
   z-index: 100000;
-  padding: 1vh;
+  padding-bottom: 1vh;
 }
 .icon{
-  font-size: 5vh;
-  padding: 3vh;
+  font-size: 3.6vh;
   color: #8D9EFF;
 }
 
