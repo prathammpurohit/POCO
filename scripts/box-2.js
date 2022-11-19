@@ -59,7 +59,11 @@ excel_file.addEventListener("change", (event) => {
       document.getElementById("excel_data").style.backgroundColor = "#B9E0FF";
       let xValues = dum[dum.length-2];
       let yValues = dum[dum.length-1];
-
+      let barColor=new Array();
+      let maxV=yValues.reduce((m,c)=>{if(m>c)return m})
+      for(let a=0;a<dum[0].length;a++)
+      barColor[a]='#'+Math.floor(Math.random()*16777215).toString(16);
+      console.log(barColor)
       new Chart("myChart", {
         type: "line",
         data: {
@@ -68,8 +72,8 @@ excel_file.addEventListener("change", (event) => {
             {
               fill: false,
               lineTension: 0,
-              backgroundColor: "#6C4AB6",
-              borderColor: "#8D72E1 ",
+              backgroundColor: `#+${Math.floor(Math.random()*16777215).toString(16)}`,
+              borderColor: `#+${Math.floor(Math.random()*16777215).toString(16)}`,
               data: yValues,
             },
           ],
@@ -77,8 +81,12 @@ excel_file.addEventListener("change", (event) => {
         options: {
           legend: { display: false },
           scales: {
-            yAxes: [{ ticks: { min: 0, max:1000} }],
+            yAxes: [{ ticks: { min: 0, max:maxV} }],
           },
+          title:{
+            display:true,
+            text:"line chart"
+          }
         },
       });
       new Chart("myChart2", {
@@ -86,7 +94,7 @@ excel_file.addEventListener("change", (event) => {
         data: {
           labels: xValues,
           datasets: [{
-            backgroundColor: '#6C4AB6',
+            backgroundColor: barColor,
             data: yValues
           }]
         },
@@ -94,7 +102,39 @@ excel_file.addEventListener("change", (event) => {
           legend: {display: false},
           title: {
             display: true,
-            text: ""
+            text: "bar chart"
+          }
+        }
+      });
+      new Chart("myChart3", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColor,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "doughnut chart"
+          }
+        }
+      });
+      new Chart("myChart4", {
+        type: "polarArea",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColor,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "polar-area chart"
           }
         }
       });
