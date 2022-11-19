@@ -32,7 +32,13 @@ excel_file.addEventListener("change", (event) => {
 
     if (sheet_data.length > 0) {
       let table_output = '<table class="table table-striped table-bordered">';
- 
+      let len = sheet_data[0].length;
+      let dum = new Array(len);
+      for (let i = 0; i < len; i++) dum[i] = new Array();
+      for (let z = 0; z < sheet_data[0].length; z++) {
+        for (let k = 1; k < sheet_data.length; k++)
+          dum[z].push(sheet_data[k][z]);
+      }
       for (let row = 0; row < sheet_data.length; row++) {
         table_output += "<tr>";
 
@@ -42,17 +48,56 @@ excel_file.addEventListener("change", (event) => {
           } else {
             table_output += "<td>" + sheet_data[row][cell] + "</td>";
           }
-
         }
 
         table_output += "</tr>";
       }
 
       table_output += "</table>";
-      
 
       document.getElementById("excel_data").innerHTML = table_output;
       document.getElementById("excel_data").style.backgroundColor = "#B9E0FF";
+      var xValues = dum[1];
+      var yValues = dum[2];
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              fill: false,
+              lineTension: 0,
+              backgroundColor: "#6C4AB6",
+              borderColor: "#8D72E1 ",
+              data: yValues,
+            },
+          ],
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{ ticks: { min: 0, max:1000} }],
+          },
+        },
+      });
+      new Chart("myChart2", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: '#6C4AB6',
+            data: yValues
+          }]
+        },
+        options: {
+          legend: {display: false},
+          title: {
+            display: true,
+            text: ""
+          }
+        }
+      });
     }
     excel_file.value = sheet_name;
   };

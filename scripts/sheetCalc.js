@@ -23,6 +23,8 @@ excel_file.addEventListener("change", (event) => {
           dum[z].push(sheet_data[k][z]);
       }
       console.log(dum);
+      
     }
+    
   };
 });

@@ -28,8 +28,12 @@
 .bg3 {
   animation-duration:5s;
 }
-
-
+.set-canvas{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-evenly;
+}
 @keyframes slide {
   0% {
     transform:translateX(-25%);
@@ -37,4 +41,8 @@
   100% {
     transform:translateX(25%);
   }
+}
+
+.set-set{
+  position: relative;
 }
