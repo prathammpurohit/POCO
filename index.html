@@ -49,17 +49,17 @@
         .poco-heading {
           font-size: 8vh;
         }
-        .heading-box-2{
+        .heading-box-2 {
           font-size: 8vh;
         }
-        .gradient{
+        .gradient {
           clip-path: polygon(100% 55%, 100% 0, 0 0, 0% 100%);
         }
-        .icon{
+        .icon {
           font-size: 2.5vh;
           margin: 1.5vh;
         }
-        .set-font{
+        .set-font {
           padding-bottom: 3.5vh;
         }
       }
@@ -140,29 +140,15 @@
         </div>
         <div id="chart_div"></div>
       </section>
-      <h2 class="heading-box-2" id="hd" data-aos="fade-up" style="display: none;">Charts!</h2>
-      <div class="set-set" style="display: none;">
-        <div class="set-canvas">
-          <canvas
-            id="myChart" class="chart"
-            style="width: 100%; max-width: 700px;"
-            data-aos="fade-right"
-          ></canvas>
-          <canvas
-            id="myChart2" class="chart" style="width: 100%; max-width: 700px;"
-            data-aos="fade-left"
-          ></canvas>
-          <canvas
-            id="myChart3" class="chart"
-            style="width: 100%; max-width: 600px;"
-            data-aos="fade-right"
-          ></canvas>
-          <canvas
-            id="myChart4" class="chart"
-            style="width: 100%; max-width: 600px"
-            data-aos="fade-left"
-          ></canvas>
-        </div>
+      <h2
+        class="heading-box-2"
+        id="hd"
+        data-aos="fade-up"
+        style="display: none"
+      >
+        Charts!
+      </h2>
+      <div class="set-set" style="display: none">
         <div class="game">
           <div class="eiffel-tower">
             <div class="s">
@@ -585,6 +571,33 @@
             </div>
           </div>
         </div>
+
+        <div class="set-canvas">
+          <canvas
+            id="myChart"
+            class="chart"
+            style="width: 100%; max-width: 700px"
+            data-aos="fade-right"
+          ></canvas>
+          <canvas
+            id="myChart2"
+            class="chart"
+            style="width: 100%; max-width: 700px"
+            data-aos="fade-left"
+          ></canvas>
+          <canvas
+            id="myChart3"
+            class="chart"
+            style="width: 100%; max-width: 600px"
+            data-aos="fade-right"
+          ></canvas>
+          <canvas
+            id="myChart4"
+            class="chart"
+            style="width: 100%; max-width: 600px"
+            data-aos="fade-left"
+          ></canvas>
+        </div>
       </div>
     </main>
   </body>
@@ -616,6 +629,16 @@
     new kursor({
       type: 1,
       color: "#393E46",
+    });
+    new kursor({
+      type:2,
+      color:"#6C4AB6",
+      el:'.set-set',
+    });
+    new kursor({
+      type:2,
+      color:"#6C4AB6",
+      el:'#hd'
     });
   </script>
   <script src="scripts/box-2.js"></script>
