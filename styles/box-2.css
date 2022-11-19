@@ -12,7 +12,7 @@
   background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
   bottom:0;
   left:-50%;
-  opacity:0.2;
+  opacity:0.15;
   position:absolute;
   right:-50%;
   top:0;
@@ -46,7 +46,4 @@
 
 .set-set{
   position: relative;
-}
-.chart{
-  margin: 10vh;
 }
