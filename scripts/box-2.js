@@ -54,16 +54,19 @@ excel_file.addEventListener("change", (event) => {
       }
 
       table_output += "</table>";
-
+      document.querySelector('.set-set').style.display='unset';
+      document.querySelector('#hd').style.display='block';
       document.getElementById("excel_data").innerHTML = table_output;
       document.getElementById("excel_data").style.backgroundColor = "#B9E0FF";
-      let xValues = dum[dum.length-2];
-      let yValues = dum[dum.length-1];
-      let barColor=new Array();
-      let maxV=yValues.reduce((m,c)=>{if(m>c)return m})
-      for(let a=0;a<dum[0].length;a++)
-      barColor[a]='#'+Math.floor(Math.random()*16777215).toString(16);
-      console.log(barColor)
+      let xValues = dum[dum.length - 2];
+      let yValues = dum[dum.length - 1];
+      let barColor = new Array();
+      let maxV = yValues.reduce((m, c) => {
+        if (m > c) return m;
+      });
+      for (let a = 0; a < dum[0].length; a++)
+        barColor[a] = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      console.log(barColor);
       new Chart("myChart", {
         type: "line",
         data: {
@@ -72,8 +75,12 @@ excel_file.addEventListener("change", (event) => {
             {
               fill: false,
               lineTension: 0,
-              backgroundColor: `#+${Math.floor(Math.random()*16777215).toString(16)}`,
-              borderColor: `#+${Math.floor(Math.random()*16777215).toString(16)}`,
+              backgroundColor: `#+${Math.floor(
+                Math.random() * 16777215
+              ).toString(16)}`,
+              borderColor: `#+${Math.floor(Math.random() * 16777215).toString(
+                16
+              )}`,
               data: yValues,
             },
           ],
@@ -81,62 +88,68 @@ excel_file.addEventListener("change", (event) => {
         options: {
           legend: { display: false },
           scales: {
-            yAxes: [{ ticks: { min: 0, max:maxV} }],
+            yAxes: [{ ticks: { min: 0, max: maxV } }],
           },
-          title:{
-            display:true,
-            text:"line chart"
-          }
+          title: {
+            display: true,
+            text: "line chart",
+          },
         },
       });
       new Chart("myChart2", {
         type: "bar",
         data: {
           labels: xValues,
-          datasets: [{
-            backgroundColor: barColor,
-            data: yValues
-          }]
+          datasets: [
+            {
+              backgroundColor: barColor,
+              data: yValues,
+            },
+          ],
         },
         options: {
-          legend: {display: false},
+          legend: { display: false },
           title: {
             display: true,
-            text: "bar chart"
-          }
-        }
+            text: "bar chart",
+          },
+        },
       });
       new Chart("myChart3", {
         type: "doughnut",
         data: {
           labels: xValues,
-          datasets: [{
-            backgroundColor: barColor,
-            data: yValues
-          }]
+          datasets: [
+            {
+              backgroundColor: barColor,
+              data: yValues,
+            },
+          ],
         },
         options: {
           title: {
             display: true,
-            text: "doughnut chart"
-          }
-        }
+            text: "doughnut chart",
+          },
+        },
       });
       new Chart("myChart4", {
         type: "polarArea",
         data: {
           labels: xValues,
-          datasets: [{
-            backgroundColor: barColor,
-            data: yValues
-          }]
+          datasets: [
+            {
+              backgroundColor: barColor,
+              data: yValues,
+            },
+          ],
         },
         options: {
           title: {
             display: true,
-            text: "polar-area chart"
-          }
-        }
+            text: "polar-area chart",
+          },
+        },
       });
     }
     excel_file.value = sheet_name;
